@@ -2,7 +2,7 @@
   "name": "covid",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gitlab.com/nhanlethanhit/covid",
+  "homepage": "https://nhanlethanhit.github.io/covid/",
 
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
