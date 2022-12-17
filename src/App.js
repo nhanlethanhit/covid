@@ -91,66 +91,66 @@ function App() {
             </select>
           </div>
         </div>
-        <div>
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Countries</th>
-                <th scope="col">Total Confirmed</th>
-                <th scope="col">Total Deaths</th>
-                <th scope="col">Total Recovered</th>
-              </tr>
-            </thead>
-            <tbody>
-              {loading ? (
-                <tr style={{ border: "transparent" }}>
-                  <td colSpan="5" className="">
-                    <div class="text-center">
-                      <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                      </div>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col"  className="table-title">#</th>
+              <th scope="col" className="table-title">
+                <span >Countries</span>
+              </th>
+              <th scope="col"  className="table-title">Total Confirmed</th>
+              <th scope="col"  className="table-title">Total Deaths</th>
+              <th scope="col"  className="table-title">Total Recovered</th>
+            </tr>
+          </thead>
+          <tbody>
+            {loading ? (
+              <tr style={{ border: "transparent" }}>
+                <td colSpan="5" className="">
+                  <div class="text-center">
+                    <div class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
                     </div>
-                  </td>
-                </tr>
-              ) : countries && countries.length > 0 ? (
-                countries.map((country, idx) => {
-                  return (
-                    <tr
-                      key={idx}
-                      data-bs-toggle="modal"
-                      data-bs-target="#Modal"
-                      onClick={() => handleClickCountries(country)}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <th scope="row">{idx + 1}</th>
-                      <td>{country.Country}</td>
-                      <td>{country.TotalConfirmed}</td>
-                      <td>{country.TotalDeaths}</td>
-                      <td>{country.TotalRecovered}</td>
-                    </tr>
-                  );
-                })
-              ) : (
-                <tr>
-                  <td colSpan="5" className="table-active text-center">
-                    Caching in progress
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+                  </div>
+                </td>
+              </tr>
+            ) : countries && countries.length > 0 ? (
+              countries.map((country, idx) => {
+                return (
+                  <tr
+                    key={idx}
+                    data-bs-toggle="modal"
+                    data-bs-target="#Modal"
+                    onClick={() => handleClickCountries(country)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <th scope="row" className="p-0">{idx + 1}</th>
+                    <td  className="p-auto">{country.Country}</td>
+                    <td  className="p-0">{country.TotalConfirmed}</td>
+                    <td  className="p-0">{country.TotalDeaths}</td>
+                    <td  className="p-0">{country.TotalRecovered}</td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan="5" className="table-active text-center">
+                  Caching in progress
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
 
       <div
-        className="modal modal-fullscreen-sm-down modal-lg"
+        className="modal"
         id="Modal"
         tabIndex="-1"
         aria-labelledby="ModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-fullscreen-sm-down">
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="ModalLabel">
@@ -173,30 +173,30 @@ function App() {
               ) : (
                 <>
                   <div class="row pb-2">
-                    <div class="col-2 fw-bold">Name:</div>
-                    <div class="col-10">{country.name}</div>
+                    <div class="col-4 fw-bold">Name:</div>
+                    <div class="col-8">{country.name}</div>
                   </div>
                   <div class="row pb-2">
-                    <div class="col-2 fw-bold">Flag:</div>
-                    <div class="col-10">
-                      <img src={country.flag} width={320} height={200} className='rounded-2'/>
+                    <div class="col-4 fw-bold">Flag:</div>
+                    <div class="col-8">
+                      <img src={country.flag} width={320} height={200} style={{ maxWidth: '100%'}} className='rounded-2 image-custom'/>
                     </div>
                   </div>
                   <div class="row pb-2">
-                    <div class="col-2 fw-bold">Population:</div>
-                    <div class="col-10">{country.population}</div>
+                    <div class="col-4 fw-bold">Population:</div>
+                    <div class="col-8">{country.population}</div>
                   </div>
                   <div class="row pb-2">
-                    <div class="col-2 fw-bold">Capital:</div>
-                    <div class="col-10">{country.capital}</div>
+                    <div class="col-4 fw-bold">Capital:</div>
+                    <div class="col-8">{country.capital}</div>
                   </div>
                   <div class="row pb-2">
-                    <div class="col-2 fw-bold">Region:</div>
-                    <div class="col-10">{country.region}</div>
+                    <div class="col-4 fw-bold">Region:</div>
+                    <div class="col-8">{country.region}</div>
                   </div>
                   <div class="row pb-2">
-                    <div class="col-2 fw-bold">Subregion:</div>
-                    <div class="col-10">{country.subregion}</div>
+                    <div class="col-4 fw-bold">Subregion:</div>
+                    <div class="col-8">{country.subregion}</div>
                   </div>
                 </>
               )}

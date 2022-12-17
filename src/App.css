@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 } */
+@media only screen and (max-width: 576px) {
+  .image-custom{
+    max-height: 150px;
+  }
+  .table-title{
+    font-size: 16px;
+    padding: 0 0.3rem !important;
+  }
+}
