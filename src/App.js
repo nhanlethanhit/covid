@@ -21,6 +21,12 @@ function App() {
           (a, b) => b.TotalConfirmed - a.TotalConfirmed
         );
         setCountries(newData);
+        localStorage.setItem('countries', JSON.stringify(newData));
+      }else{
+        const stores = localStorage.getItem('countries')
+        if(stores){
+          setCountries(JSON.parse(stores));
+        }
       }
     } catch (error) {
       console.log("🚀 ~ file: App.js:11 ~ fetchData ~ error", error);
